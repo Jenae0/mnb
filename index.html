@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="Model variant.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="1" camera-orbit="-32.09deg 78.14deg 1.325m" field-of-view="30deg" auto-rotate id="gear">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+<div class="controls" style="position:absolute; bottom:0px; left:200px">
+<div>Variant:
+  <button onClick="VBtn01()">01</button>
+  <button onClick="VBtn02()">02</button>
+  <button onClick="VBtn03()">03</button>
+  </div>
+  </div>
+
+<div style="position:absolute; bottom:0px; right:0px">
+<button onClick="setOrbit('-230.9deg 61.05deg 1.325m')">View 1</button>
+<button onClick="setOrbit('-198.5deg 79.54deg 1.325m')">View 2</button>
+<button onClick="setOrbit('197.1deg 176.9deg 1.325m')">View 3</button>
+  </div>
+
+    </model-viewer>  
+ <script>
+
+    function VBtn01() {
+
+  document.getElementById('gear').variantName = "v1";  }
+
+  function VBtn02() {
+
+  document.getElementById('gear').variantName = "v2";}
+
+  function VBtn03() {
+
+  document.getElementById('gear').variantName = "v3";}
+
+  function setOrbit(orbit)
+  {document.getElementById('gear').cameraOrbit = orbit;}
+
+  </script>
+
+
+
+
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  </body>
+</html>
